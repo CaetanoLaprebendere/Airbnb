@@ -1,10 +1,12 @@
 class User < ApplicationRecord
 	include Clearance::User
+
  has_many :authentications, dependent: :destroy
+ has_many :listings
 
  def self.create_with_auth_and_hash(authentication, auth_hash)
    user = self.create!(
-     name: auth_hash["name"],
+     name: auth_hash["info"]["name"],
      password: SecureRandom.hex(10),
      email: auth_hash["extra"]["raw_info"]["email"]
    )

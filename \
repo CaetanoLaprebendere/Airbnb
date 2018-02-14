@@ -1,0 +1,16 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: Caetano Laprebendere <caetanolaprebendere@MacBook-Pro-3.local>
+#
+# On branch feature/clearance
+# Your branch is up to date with 'origin/feature/clearance'.
+#
+# Changes to be committed:
+#	modified:   app/assets/stylesheets/application.css
+#	modified:   app/models/user.rb
+#	modified:   config/routes.rb
+#	new file:   db/migrate/20180214064204_add_name_to_users.rb
+#	modified:   db/schema.rb
+#
