@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Airbnb</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -11,12 +13,9 @@
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
     <% else -%>
       <%= link_to t(".sign_in"), sign_in_path %>
+      <%= link_to "Sign in with Facebook", "/auth/facebook" %>
     <% end -%>
 </div>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
   <div id="flash">
     <% flash.each do |key, value| -%>
@@ -24,7 +23,6 @@
     <% end %>
  </div>
 
-  <body>
     <%= yield %>
   </body>
 </html>
