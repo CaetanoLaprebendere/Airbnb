@@ -5,6 +5,7 @@ class User < ApplicationRecord
  def self.create_with_auth_and_hash(authentication, auth_hash)
    user = self.create!(
      name: auth_hash["name"],
+     password: SecureRandom.hex(10),
      email: auth_hash["extra"]["raw_info"]["email"]
    )
    user.authentications << authentication
