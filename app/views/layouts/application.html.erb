@@ -9,7 +9,7 @@
   </head>
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand" href="#">Airbnb</a>
+              <a class="navbar-brand" href="http://localhost:3000/">Airbnb</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -60,7 +60,7 @@
 
   <div id="flash">
     <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
+      <div id="flash_<%= key %>" class="alert <%= flash_class(key).to_s %> "><%=h value %></div>
     <% end %>
  </div>
 

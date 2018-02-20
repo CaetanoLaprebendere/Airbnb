@@ -4,6 +4,25 @@ class User < ApplicationRecord
  has_many :authentications, dependent: :destroy
  has_many :listings
 
+ enum roles: [ :customer, :moderator, :superadmin]
+
+# # conversation.update! status: 0
+# conversation.active!
+# conversation.active? # => true
+# conversation.status  # => "active"
+
+# # conversation.update! status: 1
+# conversation.archived!
+# conversation.archived? # => true
+# conversation.status    # => "archived"
+
+# # conversation.status = 1
+# conversation.status = "archived"
+
+# conversation.status = nil
+# conversation.status.nil? # => true
+# conversation.status      # => nil
+
  def self.create_with_auth_and_hash(authentication, auth_hash)
    user = self.create!(
      name: auth_hash["info"]["name"],

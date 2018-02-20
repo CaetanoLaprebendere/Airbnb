@@ -1,7 +1,25 @@
 Welcome to Airbnb!
 
+</br> </br>
+
+<%= link_to "Add listing", new_user_listing_path(@user) %> 
+
 </br>
 
-<%= link_to "create listing", new_user_listing_path(@user) %> 
-</br>
+
+<% @listings.each do |listing| %> 
+	<div class="card" style="width: 18rem;">
+
+	  <div class="card-body">
+	    <h5 class="card-title"><%= listing.title %>
+	    <%= listing.price %> 
+	    <%= listing.location %></p>
+	    <a href=<%= user_listing_path(listing.user_id ,listing.id) %> class="btn btn-primary">Reserve</a>
+	  </div>
+	</div>
+	<br>
+<% end %>
+
+
+
 

@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = {}
+user['password'] = 'asdf'
+# user['password_confirmation'] = 'asdf'
+
+ActiveRecord::Base.transaction do
+  20.times do 
+    user['name'] = Faker::Name.first_name 
+    user['email'] = Faker::Internet.email
+
+    User.create(user)
+  end
+end 
+
+listing = {}
+uids = []
+User.all.each { |u| uids << u.id }
+
+ActiveRecord::Base.transaction do
+  40.times do 
+    listing['title'] = Faker::App.name
+    listing['price'] = rand(80..500)
+    listing['location'] = Faker::Address.street_address
+    listing['user_id'] = uids.sample
+
+    Listing.create(listing)
+  end
+end
