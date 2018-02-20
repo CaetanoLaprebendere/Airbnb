@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
 	   @listing.user_id = @user.id
 	   if @listing.save
 	   redirect_to user_listing_path(@user, @listing)
+	   flash[:notice] = "you have successfully created your listing"
 		else
 		render template:"welcome/index" 
 		end 
@@ -19,13 +20,19 @@ class ListingsController < ApplicationController
 	def show
 		@listing = Listing.find(params[:id]) 
 		render template: "listings/show"
-	end 
 
+	end
+
+	def verify
+		@listing = Listing.find(params[:id])
+		@listing.verified = true
+		@listing.save
+		redirect_to user_listing_path(current_user, @listing)
+	end
 
 private 
 
 	def listings_params
 		params.require(:listing).permit(:title, :price, :location)
 	end 
-
 end

@@ -1,14 +1,33 @@
-<div class="text-field">
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-</div>
+<form>
+</br> 
+	<div class="text-field form-group">
+	  <%= form.label :name %>
+	  <%= form.text_field :name, class: "form-control" %>
+	</div>
 
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
+	<div class="text-field form-group">
+	  <%= form.label :email %>
+	  <%= form.text_field :email, type: 'email',class: "form-control",  placeholder: "Enter email", id: "exampleInputEmail1" %>
+	  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else, pinky promise.</small>
+	</div>
 
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+	<div class="password-field">
+	  <%= form.label :password %>
+	  <%= form.password_field :password, class: "form-control", id: "exampleInputPassword1", placeholder: "Password" %>
+	</div>
+
+
+</br>
+   <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1"> By checking this box you grant us full ownership of your family members and spouse. </label>
+  </div>
+
+</br>
+
+</form>
+
+<!--  -->
+
+
+  
