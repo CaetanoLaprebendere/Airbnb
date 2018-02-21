@@ -5,6 +5,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.3.2/themes/airbnb.css">
+   
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -66,4 +68,6 @@
 
     <%= yield %>
   </body>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.3.2/flatpickr.js"></script>
 </html>
