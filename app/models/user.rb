@@ -4,6 +4,8 @@ class User < ApplicationRecord
  has_many :authentications, dependent: :destroy
  has_many :listings
 
+ 
+
  enum roles: [ :customer, :moderator, :superadmin]
 
 # # conversation.update! status: 0

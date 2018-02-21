@@ -6,11 +6,9 @@ class ListingsController < ApplicationController
 	end
 
 	def create
-	   @listing = Listing.new(listings_params)
-	   @user = User.find(params[:user_id])
-	   @listing.user_id = @user.id
+	   @listing = current_user.listings.new(listings_params)
 	   if @listing.save
-	   redirect_to user_listing_path(@user, @listing)
+	   redirect_to new_listing_path(@user, @listing)
 	   flash[:notice] = "you have successfully created your listing"
 		else
 		render template:"welcome/index" 

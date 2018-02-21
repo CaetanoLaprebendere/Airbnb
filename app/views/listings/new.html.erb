@@ -1,11 +1,12 @@
+<div class="d-flex justify-content-center">
 
-  <h2><%= t(".title") %></h2>
-
-  <%= form_for [current_user, @listing] do |form| %>
+  <%= form_for @listing do |form| %>
     <%= render partial: '/listings/form', object: form %>
 
     <div class="submit-field">
       <%= form.submit %>
     </div>
   <% end %>
+
+</div>
 

@@ -6,4 +6,4 @@
 <%= image_tag @listing.avatar.medium.url %>
 <%#= @listing.verified %>
 <%= button_to "verify", verify_path(@listing), method: :post%>
-<%= button_to "reserve", new_reservation_path, method: :get%>
+<%= button_to "reserve", new_listing_reservation_path, method: :get%>
