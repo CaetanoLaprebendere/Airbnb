@@ -8,10 +8,11 @@ class ListingsController < ApplicationController
 	def create
 	   @listing = current_user.listings.new(listings_params)
 	   if @listing.save
-	   redirect_to new_listing_path(@user, @listing)
-	   flash[:notice] = "you have successfully created your listing"
+		   redirect_to listing_path(@listing)
+		   flash[:notice] = "you have successfully created your listing"
 		else
-		render template:"welcome/index" 
+			 flash[:notice] = "you have failed to create your listing"
+			 redirect_to new_listing_path(@user, @listing)		
 		end 
 	end 
 
@@ -25,7 +26,15 @@ class ListingsController < ApplicationController
 		@listing = Listing.find(params[:id])
 		@listing.verified = true
 		@listing.save
-		redirect_to user_listing_path(current_user, @listing)
+		flash[:notice] = "you verified this listing"
+		redirect_to listing_path(@listing)
+	end
+
+	def destroy
+	@listing = Listing.find(params[:id])
+	@listing.destroy
+	flash[:notice] = "the listing was deleted"
+	redirect_to root_path
 	end
 
 private 

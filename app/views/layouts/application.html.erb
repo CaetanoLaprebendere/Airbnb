@@ -10,25 +10,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand" href="http://localhost:3000/">Airbnb</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand align_navbar" style=" margin-right: 30px;
+    margin-left: 7px;
+" href="http://localhost:3000/">Airbnb</a>
+
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
               </button>
 
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               
                 <ul class="navbar-nav mr-auto">
-                     <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder='Try "New York City"'>
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-                  <li class="nav-item active">
+                 
+                  <form class="form-inline my-2 my-lg-0">
+                      <input class="form-control mr-sm-2" type="search" placeholder='Try "New York City"'>
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                  
+                  <li class="nav-item active align_navbar">
                     <a class="nav-link" href="#"> Become a host <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item">
+                  
+                  <li class="nav-item active align_navbar">
                     <a class="nav-link" href="#"> Saved </a>
                   </li>
-                  <li class="nav-item dropdown">
+                  
+                  <li class="nav-item dropdown active align_navbar">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Messages
                     </a>
@@ -39,26 +49,45 @@
                       <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item active align_navbar">
                     <a class="nav-link" href=<%=sign_up_path%> >Sign Up </a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Sign in
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href=<%=sign_in_path%> >Sign in</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/auth/facebook">Connect via Facebook</a>
-                    </div>
-                  </li>
-                </ul>
+                  <br> <br>
+
+                  
+                         <% if signed_in? %>
+                         <li class="nav-item active align_navbar">
+                            <a class="nav-link">
+                             <%= current_user.email %>
+                            </a>
+                         </li>   
+                            
+                         <li class="nav-item active align_navbar">
+                            <a class="nav-link">
+                              <%= button_to "Sign out", sign_out_path, method: :delete %>
+                            </a>
+                         </li>                        
+                      
+                      
+                      <% else %>
+                          <li class="nav-item dropdown active align_navbar">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Sign in
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href=<%=sign_in_path%> >Sign in</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="/auth/facebook">Connect via Facebook</a>
+                          
+                          </div>
+                          </li>
+                    <% end %>
+                 </li>
+
+               </ul>
               </div>
             </nav>
 
-</br> </br>
-
-<body>
 
   <div id="flash">
     <% flash.each do |key, value| -%>
