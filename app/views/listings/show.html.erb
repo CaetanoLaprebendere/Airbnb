@@ -8,4 +8,6 @@
 <%= button_to "verify", verify_path(@listing), method: :post%>
 <%= button_to "reserve", new_listing_reservation_path(@listing), method: :get%>
 <%= button_to "delete", listing_path(@listing), method: :delete%>
+<%= button_to "edit", edit_listing_path(@listing), method: :get%>
+
 </div>
