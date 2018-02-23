@@ -1,13 +1,27 @@
-</br>
-<div class="d-flex justify-content-center flex-wrap">
-<%= @listing.title %> </br>
-<%= @listing.price %> </br>
-<%= @listing.location %> </br></br></br>
-<%= image_tag @listing.avatar.url if @listing.avatar? %>
-<%#= @listing.verified %>
-<%= button_to "verify", verify_path(@listing), method: :post%>
-<%= button_to "reserve", new_listing_reservation_path(@listing), method: :get%>
-<%= button_to "delete", listing_path(@listing), method: :delete%>
-<%= button_to "edit", edit_listing_path(@listing), method: :get%>
+</br></br>
 
+<div class="d-flex"> 
+<div style="margin: auto">
+
+<%= image_tag @listing.avatar.url if @listing.avatar? %> <br>
+</br>
+<div> <%= @listing.title %> </br> </div>
+
+
+$<%=@listing.price %> per night</br>
+
+<%= @listing.location %> </br></br></br>
+
+<div class="row">
+<%= button_to "verify", verify_path(@listing), method: :post%>
+
+<%= button_to "reserve", new_listing_reservation_path(@listing), method: :get
+%>
+
+<%= button_to "edit", edit_listing_path(@listing), method: :get%>
+</div>
+</br></br>
+<%= button_to "delete", listing_path(@listing), method: :delete%>
+
+</div>
 </div>

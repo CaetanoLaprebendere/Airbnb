@@ -23,12 +23,11 @@ class ListingsController < ApplicationController
 
   def edit
 	  @listing = Listing.find(params[:id])	  
-	  redirect_to edit_listing_path(@listing)
   end
 
   def update
   	@listing = Listing.find(params[:id])
-	  if @listing.update(listing_params)
+	  if @listing.update(listings_params)
 	  	redirect_to listing_path(@listing)
 	  else 
 	    redirect_to edit_listing_path(@listing)

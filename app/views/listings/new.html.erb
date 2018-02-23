@@ -1,23 +1,19 @@
 <br> <br> <br> <br>
 
 
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
+  <div class="flex-wrap">
     <div class="d-flex justify-content-center flex-wrap">
 
       <%= form_for @listing do |form| %>
-        <%= render partial: '/listings/form', object: form %>
+      <%= render partial: '/listings/form', object: form %>
   <br>
         <%= form.submit%>
-      </div>
+    </div>
 
     <br>
     
     <% end %>
   
-  </div>
-  <div class="col-md-4"></div>
 </div>
 
 

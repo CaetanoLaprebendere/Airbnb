@@ -11,8 +11,8 @@ class ReservationsController < ApplicationController
   def create 
     @listing = Listing.find(params[:listing_id])
     @reservation = current_user.reservations.new(reservation_params)
-    @reservation.listing_id = @listing_id
-    @reservation.total_price = ((@reservation.check_in - @reservation.check_out) * @reservation.listing.price).to_i
+    @reservation.listing_id = @listing.id
+    @reservation.total_price = ((@reservation.check_out - @reservation.check_in) * @reservation.listing.price).to_i
     if @reservation.save
        redirect_to [@listing, @reservation]
      else

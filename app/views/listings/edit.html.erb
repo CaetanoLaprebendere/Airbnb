@@ -1,7 +1,14 @@
-<%= render '/listings/form', :locals => {:f => f } %>
+<div class="flex-wrap">
+    <div class="d-flex justify-content-center flex-wrap">
 
-  <div>
-      <%= f.submit %>
-  </div>
+      <%= form_for @listing do |form| %>
+      <%= render partial: '/listings/form', object: form %>
+  <br>
+        <%= form.submit%>
+    </div>
 
-  <% end %>
+    <br>
+    
+    <% end %>
+  
+</div>

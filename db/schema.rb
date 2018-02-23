@@ -40,14 +40,15 @@ ActiveRecord::Schema.define(version: 2018_02_21_042846) do
   create_table "reservations", force: :cascade do |t|
     t.date "check_in"
     t.date "check_out"
-    t.bigint "listing_id_id"
-    t.bigint "user_id_id"
+    t.bigint "listing_id"
+    t.bigint "user_id"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number_of_guests", default: 1
-    t.index ["listing_id_id"], name: "index_reservations_on_listing_id_id"
-    t.index ["user_id_id"], name: "index_reservations_on_user_id_id"
+    t.integer "total_price", default: 0
+    t.index ["listing_id"], name: "index_reservations_on_listing_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
