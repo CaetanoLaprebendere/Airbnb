@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
 
   def new 
     @reservation = Reservation.new
+    @listing = Listing.find(params[:listing_id])
     render template: "reservations/new"
   end
   
