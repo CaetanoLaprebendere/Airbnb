@@ -1,0 +1,18 @@
+<br><br>
+
+<div class="d-flex">
+<div style="margin: auto">
+<div> <%= image_tag @listing.avatar.url if @listing.avatar? %> </div> 
+<br>
+<div> <%= @reservation.check_in %> </br> </div>
+<br>
+<div> <%= @reservation.check_out %> </br> </div>
+<br>
+<div> <%= @reservation.total_price %> </br> </div> 
+<br>
+<div> <%= @listing.location %> </br></br></br> </div>
+<%= link_to "Make Payment", braintree_new_path %>
+<br><br>
+<div> <%= button_to "cancel", listing_path(@listing), method: :delete%> </div>
+</div>
+</div>

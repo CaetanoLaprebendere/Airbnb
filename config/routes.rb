@@ -8,12 +8,13 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
- # resources :listings, only: [:show] do 
+ resources :listings do 
    resources :reservations
-  # end 
-  resources :users do
-    resources :listings, only: [:create, :new, :edit, :destroy, :show]
-  end
+  end 
+
+  resources :users 
+    # resources :listings, only: [:create, :new, :edit, :destroy, :show]
+
 
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
@@ -21,6 +22,13 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   post "verification/:id" => "listings#verify", as: "verify"
+
+  get 'braintree/new'
+  post 'braintree/checkout'
+  post 'braintree/new'
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

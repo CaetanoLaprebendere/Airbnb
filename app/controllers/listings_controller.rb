@@ -6,28 +6,48 @@ class ListingsController < ApplicationController
 	end
 
 	def create
-	   @listing = Listing.new(listings_params)
-	   @user = User.find(params[:user_id])
-	   @listing.user_id = @user.id
+	   @listing = current_user.listings.new(listings_params)
 	   if @listing.save
-	   redirect_to user_listing_path(@user, @listing)
-	   flash[:notice] = "you have successfully created your listing"
+		   redirect_to listing_path(@listing)
+		   flash[:notice] = "you have successfully created your listing"
 		else
-		render template:"welcome/index" 
+			 flash[:notice] = "you have failed to create your listing"
+			 redirect_to new_listing_path(@user, @listing)		
 		end 
 	end 
 
 	def show
 		@listing = Listing.find(params[:id]) 
 		render template: "listings/show"
-
 	end
+
+  def edit
+	  @listing = Listing.find(params[:id])	  
+  end
+
+  def update
+  	@listing = Listing.find(params[:id])
+	  if @listing.update(listings_params)
+	  	redirect_to listing_path(@listing)
+	  else 
+	    redirect_to edit_listing_path(@listing)
+	  flash[:notice] = "edit failed"
+	  end  	
+  end
 
 	def verify
 		@listing = Listing.find(params[:id])
 		@listing.verified = true
 		@listing.save
-		redirect_to user_listing_path(current_user, @listing)
+		flash[:notice] = "you verified this listing"
+		redirect_to listing_path(@listing)
+	end
+
+	def destroy
+	@listing = Listing.find(params[:id])
+	@listing.destroy
+	flash[:notice] = "the listing was deleted"
+	redirect_to root_path
 	end
 
 private 
