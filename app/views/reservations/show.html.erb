@@ -11,6 +11,8 @@
 <div> <%= @reservation.total_price %> </br> </div> 
 <br>
 <div> <%= @listing.location %> </br></br></br> </div>
+<%= link_to "Make Payment", braintree_new_path %>
+<br><br>
 <div> <%= button_to "cancel", listing_path(@listing), method: :delete%> </div>
 </div>
 </div>

@@ -86,3 +86,5 @@ gem 'fog'
 gem "fog-aws"
 
 gem 'pry-rails'
+
+gem 'braintree'
