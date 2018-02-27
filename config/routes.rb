@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   post "verification/:id" => "listings#verify", as: "verify"
   post "/listings/:listing_id/reservations/:id" => "reservations#destroy", as: "delete"
+  post "/listings/:listing_id/reservations/:id/checkout" => "reservations#checkout", as: "checkout"
 
   get 'braintree/new'
   post 'braintree/checkout'
