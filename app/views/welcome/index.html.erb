@@ -1,25 +1,38 @@
-Homes
+<br><br><br>
 
-</br> </br>
+<div class="d-flex justify-content-center flex-wrap">
+    <h1> Homes </h1>
+    
+</div>
 
-<%= link_to "Add listing", new_user_listing_path(@user) %> 
+<br><br><br><br>
 
-</br>
+<div class="d-flex justify-content-center flex-wrap">
+    <% @listings.each do |listing| %> 
+      	<div class="card" style="width: 27rem; border: none; margin-bottom: 2vw">
 
+      	   <div class="card-body">
+      	   
+           <h4 class="card-title" style="text-align: center"> <%= listing.title %>
+      	   
+           <h6 class="card-title" style="text-align: center"> <%= listing.location %> 
+           </h6>
+ 
+           <div class="card-title" style="text-align: center">
 
-<% @listings.each do |listing| %> 
-	<div class="card" style="width: 18rem;">
+           <p>$<%= listing.price %> per night</p>
+             
+           </div>
+      	   
+           <div class="card-title" style="text-align: center"> <%= link_to "See Listing", listing_path(listing.id), class: "btn btn-primary" %> </div>
+      	   </div>
+      	
+        </div>
+    	
+      <br>
+    
+    <% end %>
 
-	  <div class="card-body">
-	    <h5 class="card-title"><%= listing.title %>
-	    <%= listing.price %> 
-	    <%= listing.location %></p>
-	    <a href=<%= user_listing_path(listing.user_id ,listing.id) %> class="btn btn-primary">Reserve</a>
-	  </div>
-	</div>
-	<br>
-<% end %>
-
-
+</div>
 
 

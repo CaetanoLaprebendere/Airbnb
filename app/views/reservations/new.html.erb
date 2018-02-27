@@ -1,7 +1,12 @@
-<%= form_for @reservation do |f| %> 
+<div class="d-flex justify-content-center">
+
+  <%= form_for [@listing, @reservation] do |f| %> 
 
 <%= render partial: '/reservations/form', locals: { f: f } %>
 
 <%= f.submit %> 
+
 <% end %> 
+
+</div>
 

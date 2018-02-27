@@ -1,14 +1,28 @@
-<div class="text-field">
-  <!-- <%#= f.label :Check_in %> -->
-  <%= f.text_field :check_in, placeholder: "dd/mm/yy" %>
-</div>
+<br><br><br>
 
 <div class="text-field">
-  <!-- <%#= f.label :Check_out %> -->
-  <%= f.text_field :check_out, placeholder: "dd/mm/yy" %>
+  <%= f.label :check_in %>
+  <%= f.text_field :check_in, placeholder: "      dd/mm/yy", id:"add_flatpicker", style:"width:10vw;"%>
 </div>
 
-<!-- <div class="text-field">
-  <%#= form.label :Number_of_guests %>
-  <%#= form.text_field :number_of_guests %>
-</div> -->
+<br> 
+
+<div class="text-field">
+  <%= f.label :check_out %> 
+  <%= f.text_field :check_out, placeholder: "      dd/mm/yy", id:"add_flatpicker", style:"width:10vw;"%>
+</div>
+
+<br>
+
+<div class="text-field">
+  <%= f.label :number_of_guests %>
+  <%= f.text_field :number_of_guests, placeholder: "   #", style:"width:3vw;" %>
+</div> 
+
+<br>
+
+<script>
+  
+  flatpickr("#add_flatpicker", {});
+
+</script>
