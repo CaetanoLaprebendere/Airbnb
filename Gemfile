@@ -88,3 +88,5 @@ gem "fog-aws"
 gem 'pry-rails'
 
 gem 'braintree'
+
+gem "letter_opener", :group => :development
