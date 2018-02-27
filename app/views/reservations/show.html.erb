@@ -1,4 +1,4 @@
-  <br><br>
+  <br><br> 
 
 <div class=container>
  <div class=row>
@@ -6,22 +6,20 @@
   <div style="margin: auto">
   <div> <%= image_tag @listing.avatar.url if @listing.avatar? %> </div> 
   <br>
-  <div> <%= @reservation.check_in %> </br> </div>
+  <div> Check In: <br><%= @reservation.check_in %> </br> </div>
   <br>
-  <div> <%= @reservation.check_out %> </br> </div>
+  <div> Check Out: <br><%= @reservation.check_out %> </br> </div>
   <br>
-  <div> <%= @reservation.total_price %> </br> </div> 
+  <div> Total $<br><%= @reservation.total_price %> </br> </div> 
   <br>
-  <div> <%= @listing.location %> </br></br></br> </div>
-  <%= link_to "Make Payment", braintree_new_path %>
-  <br><br>
+  <br>
   <div> <%= button_to "cancel", listing_reservation_path(@reservation), method: :destroy%> </div>
   </div>
   </div>
 
 
   <div class="demo-frame col-md-6">
-
+ <br><br>
       <%= form_for :checkout_form, url: checkout_path, html: { id: "cardForm"} do |form| %>
       
       <%= form.hidden_field "token", value: @client_token %>
