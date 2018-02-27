@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   post "verification/:id" => "listings#verify", as: "verify"
+  post "/listings/:listing_id/reservations/:id" => "reservations#destroy", as: "delete"
 
   get 'braintree/new'
   post 'braintree/checkout'

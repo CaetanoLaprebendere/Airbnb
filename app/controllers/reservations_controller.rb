@@ -14,6 +14,8 @@ class ReservationsController < ApplicationController
     @reservation.listing_id = @listing.id
     @reservation.total_price = ((@reservation.check_out - @reservation.check_in) * @reservation.listing.price).to_i
     if @reservation.save
+        ReservationMailer.booking_email(current_user, @listing.user, @reservation.id).deliver_later
+
        redirect_to [@listing, @reservation]
      else
        redirect_to new_listing_reservation(@listing)
@@ -25,11 +27,19 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
   
+  def destroy
+  @reservation = Reservation.find(params[:id])
+  @reservation.destroy
+  flash[:notice] = "the reservation was canceled"
+  redirect_to root_path
+  end
+
   private
 
   def reservation_params
     params.require(:reservation).permit(:check_in, :check_out)
   end 
+
 
 end
 

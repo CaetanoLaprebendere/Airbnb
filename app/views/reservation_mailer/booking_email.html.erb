@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <h1>Congratulations <%= @host.name %>! 
+      You have received a booking from <%= @customer.name %></h1>
+    <p>
+      You can see details of your new booking here: http://localhost:3000/listings/11/reservations/<%=  @reservation_id %>
+
+    </p>
+  </body>
+</html>
