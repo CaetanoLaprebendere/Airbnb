@@ -27,15 +27,16 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [width, height]
   # end
 
-  # version :small do 
-  #   process resize_to_fit: [200, 300]
-  # end   
-
-  version :medium do 
-    process resize_to_fit: [700, 800]
+  version :small do 
+    process resize_to_fit: [200, 300]
   end   
 
-  process resize_to_fit: [200,300]
+  version :medium do 
+    process resize_to_fit: [600, 1200]
+  end   
+
+
+  process resize_to_fit: [600,1200]
   
 
   # def scale(width, height)

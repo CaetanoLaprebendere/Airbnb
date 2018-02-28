@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   post "/listings/:listing_id/reservations/:id" => "reservations#destroy", as: "delete"
   post "/listings/:listing_id/reservations/:id/checkout" => "reservations#checkout", as: "checkout"
 
+ post "/search" => "listings#search"
+
   get 'braintree/new'
   post 'braintree/checkout'
   post 'braintree/new'

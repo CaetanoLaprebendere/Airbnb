@@ -1,0 +1,35 @@
+</br></br>
+
+<div class="d-flex"> 
+<div style="margin: auto">
+
+<% @listings.each do |listing| %>
+
+  <%= image_tag listing.avatar.url if listing.avatar? %> 
+  <br>
+  <br>
+
+  <div> 
+    <%= listing.title %> 
+    </br> 
+  </div>
+
+  $<%=listing.price %> per night</br>
+
+  <%=listing.location %> </br></br></br>
+
+  <div class="row">
+    <%= button_to "verify", verify_path(listing), method: :post%>
+    <%= button_to "reserve",new_listing_reservation_path(listing), method: :get
+    %>
+    <%= button_to "edit", edit_listing_path(listing), method: :get%>
+    <%= button_to "delete", listing_path(listing), method: :delete%>
+  </div>
+  
+
+
+  <%end%>
+
+</div>
+    </div>
+

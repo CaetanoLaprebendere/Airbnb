@@ -35,6 +35,11 @@ class ListingsController < ApplicationController
 	  end  	
   end
 
+	def search 
+	  @listings = Listing.location(params[:location])  
+	  render template: "listings/search" 
+	end 
+
 	def verify
 		@listing = Listing.find(params[:id])
 		@listing.verified = true
