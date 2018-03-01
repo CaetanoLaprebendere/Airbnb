@@ -1,18 +1,23 @@
-<br><br><br>
+    <br>
 
 <div class="d-flex justify-content-center flex-wrap">
+
+<br><br>
     <h1> Homes </h1>
-    
+
 </div>
 
-<br><br><br><br>
-
+<br><br>
+  
 <div class="d-flex justify-content-center flex-wrap">
     <% @listings.each do |listing| %> 
+
       	<div class="card" style="width: 27rem; border: none; margin-bottom: 2vw">
 
-      	   <div class="card-body">
-      	   
+      	   <div class="card-body" style='text-align: center;'>
+
+          <%= image_tag listing.avatar.small.url if listing.avatar?  %> <br><br>
+
            <h4 class="card-title" style="text-align: center"> <%= listing.title %>
       	   
            <h6 class="card-title" style="text-align: center"> <%= listing.location %> 

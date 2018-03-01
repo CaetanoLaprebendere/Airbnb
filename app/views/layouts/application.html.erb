@@ -16,7 +16,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <a class="navbar-brand align_navbar" style=" margin-right: 30px;
     margin-left: 7px;
-" href="http://localhost:3000/">Airbnb</a>
+" href="http://localhost:3000/">Artbnb</a>
 
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -25,31 +25,21 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                
                 <ul class="navbar-nav mr-auto">
-                 
-                  <form class="form-inline my-2 my-lg-0">
-                      <input class="form-control mr-sm-2" type="search" placeholder='Try "New York City"'>
-                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
-                  
+                
+                  <%= form_tag(search_path,{class: "form-inline my-2 my-lg-0",}) do %>
+                    <%= text_field_tag :location, nil , :placeholder => 'Try "New York City"', :class => "form-control mr-sm-2" %>
+                    <%= text_field_tag :min_price , nil, placeholder: 'minimum price per night', :class => "form-control mr-sm-2 short_input_box" %>
+                    <%= text_field_tag :max_price , nil, placeholder: 'maximum price per night', :class => "form-control mr-sm-2"%>
+                    <%= submit_tag 'submit', :class => "btn btn-outline-success my-2 my-sm-0" %>
+                  <% end %>
+
+                  <div style="text-align: left; margin-left: 2vw;">
+        </div>
+
                   <li class="nav-item active align_navbar">
                     <a class="nav-link" href="http://localhost:3000/listings/new"> Become a host <span class="sr-only">(current)</span></a>
                   </li>
 
-                  <li class="nav-item active align_navbar">
-                    <a class="nav-link" href="#"> Saved </a>
-                  </li>
-                  
-                  <li class="nav-item dropdown active align_navbar">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Messages
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#"> Bla bla bla </a>
-                      <a class="dropdown-item" href="#">Yadda Yadda</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </li>
                   <br> <br>
 
                   
