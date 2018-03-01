@@ -27,7 +27,8 @@
                 <ul class="navbar-nav mr-auto">
                 
                   <%= form_tag(search_path,{class: "form-inline my-2 my-lg-0",}) do %>
-                    <%= text_field_tag :location, nil , :placeholder => 'Try "New York City"', :class => "form-control mr-sm-2" %>
+                    <%= text_field_tag :location, nil , :placeholder => 'Try "New York City"', :class => "form-control mr-sm-2", :id => "hello" %>
+                    <datalist id="location_list"></datalist>
                     <%= text_field_tag :min_price , nil, placeholder: 'minimum price per night', :class => "form-control mr-sm-2 short_input_box" %>
                     <%= text_field_tag :max_price , nil, placeholder: 'maximum price per night', :class => "form-control mr-sm-2"%>
                     <%= submit_tag 'submit', :class => "btn btn-outline-success my-2 my-sm-0" %>

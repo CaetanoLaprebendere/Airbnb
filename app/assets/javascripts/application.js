@@ -19,7 +19,7 @@
 //= require popper
 //= require bootstrap-sprockets
 
-document.onEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function(){
 var form = document.querySelector('#cardForm');
 // var authorization = document.query;
 
@@ -81,4 +81,14 @@ function createHostedFields(clientInstance) {
     form.addEventListener('submit', teardown, false);
   });
 }
+
+
 })
+
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+// var location_input = Document.getElementById("hello");
+// if (location_input){
+//   console.log(location_input)
+// }
+
