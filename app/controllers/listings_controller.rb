@@ -36,8 +36,31 @@ class ListingsController < ApplicationController
   end
 
 	def search 
-	  @listings = Listing.location(params[:location])  
-	  render template: "listings/search" 
+
+		@listings = Listing.where(nil)
+		filtering_params(params).each do |key, value|
+			@listings = @listings.public_send(key,value) if value.present?
+		end
+	
+	 #  if !params[:location].nil?
+	 #  @listings = Listing.location(params[:location])
+		# end
+
+	 #  if !params[:max_price].nil? && !params[:max_price].nil? 
+	 #  	@listings = Listing.all
+	 #  	byebug
+	 #  	# if !params[:max_price].nil? || !params[:min_price].nil?
+	 #  	@listings = @listings.max_price(filtering_params)
+	 #  	@listings = @listings.min_price(filtering_params)
+	 #  	# end 
+	 #  	# if !params[:max_price].nil? || params[:min_price].nil?
+	 # 		 # @listings = @listings.max_price(params[:max_price])
+	 # 		# else !params[:min_price].nil? || params[:max_price].nil?
+		#   # @listings = @listings.min_price(params[:min_price])
+		# 	# end 
+	 #  end 
+
+	 #  render template: "listings/search" 
 	end 
 
 	def verify
@@ -59,5 +82,10 @@ private
 
 	def listings_params
 		params.require(:listing).permit(:title, :price, :location, :avatar)
-	end 
+	end
+
+	def filtering_params(params)
+		params.slice(:location, :max_price, :min_price)
+		
+	end
 end
