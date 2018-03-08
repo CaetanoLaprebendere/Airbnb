@@ -36,11 +36,24 @@ class ListingsController < ApplicationController
   end
 
 	def search 
-
 		@listings = Listing.where(nil)
 		filtering_params(params).each do |key, value|
 			@listings = @listings.public_send(key,value) if value.present?
 		end
+
+		@json_listings = @listings.map do |x|
+			x.location
+		end
+		@json_listings = @json_listings.uniq
+
+
+ 		# [<#Listing lskdjf ittle: >, <#LIsting
+		# ["oslo", "norway"]
+		respond_to do |format|
+			format.html 
+			format.json { render json: @json_listings }
+		end
+
 	
 	 #  if !params[:location].nil?
 	 #  @listings = Listing.location(params[:location])

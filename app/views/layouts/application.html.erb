@@ -15,8 +15,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <a class="navbar-brand align_navbar" style=" margin-right: 30px;
-    margin-left: 7px;
-" href="http://localhost:3000/">Artbnb</a>
+    margin-left: 7px;" href="http://localhost:3000/">Artbnb</a>
 
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -27,18 +26,20 @@
                 <ul class="navbar-nav mr-auto">
                 
                   <%= form_tag(search_path,{class: "form-inline my-2 my-lg-0",}) do %>
-                    <%= text_field_tag :location, nil , :placeholder => 'Try "New York City"', :class => "form-control mr-sm-2", :id => "hello" %>
-                    <datalist id="location_list"></datalist>
+                    <%= text_field_tag :location, nil , :placeholder => 'Try "New York City"', :class => "form-control mr-sm-2", :id => "hello", :list => "location_list" %>
+                    <datalist id="location_list">
+                     <!--  <option value="Okinawa"></option> -->
+                    </datalist>
                     <%= text_field_tag :min_price , nil, placeholder: 'minimum price per night', :class => "form-control mr-sm-2 short_input_box" %>
                     <%= text_field_tag :max_price , nil, placeholder: 'maximum price per night', :class => "form-control mr-sm-2"%>
                     <%= submit_tag 'submit', :class => "btn btn-outline-success my-2 my-sm-0" %>
                   <% end %>
 
                   <div style="text-align: left; margin-left: 2vw;">
-        </div>
+            </div>
 
                   <li class="nav-item active align_navbar">
-                    <a class="nav-link" href="http://localhost:3000/listings/new"> Become a host <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="http://localhost:3000/listings/new"> Become a host    <span class="sr-only">(current)</span></a>
                   </li>
 
                   <br> <br>
@@ -82,13 +83,13 @@
 
 
   <div id="flash">
-    <% flash.each do |key, value| -%>
+    <% flash.each do |key, value| %>
       <div id="flash_<%= key %>" class="alert <%= flash_class(key).to_s %> "><%=h value %></div>
     <% end %>
  </div>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.3.2/flatpickr.js"></script>
     <%= yield %>
-  </body>
+</body>
   
    
 </html>

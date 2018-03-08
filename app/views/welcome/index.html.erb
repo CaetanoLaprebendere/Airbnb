@@ -27,10 +27,12 @@
 
            <p>$<%= listing.price %> per night</p>
              
+           <p><%= listing.user.name %></p>
+           <p><%= listing.reservations.size %></p>
            </div>
-      	   
+           
            <div class="card-title" style="text-align: center"> <%= link_to "See Listing", listing_path(listing.id), class: "btn btn-primary" %> </div>
-      	   </div>
+           </div>
       	
         </div>
     	

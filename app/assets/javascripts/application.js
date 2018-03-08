@@ -71,7 +71,7 @@ function createHostedFields(clientInstance) {
   }, function (err, hostedFieldsInstance) {
     var teardown = function (event) {
       event.preventDefault();
-      alert('Submit your nonce to your server here!');
+      console.log('Submit your nonce to your server here!');
       hostedFieldsInstance.teardown(function () {
         createHostedFields(clientInstance);
         form.removeEventListener('submit', teardown, false);
@@ -82,13 +82,4 @@ function createHostedFields(clientInstance) {
   });
 }
 
-
 })
-
-// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-
-// var location_input = Document.getElementById("hello");
-// if (location_input){
-//   console.log(location_input)
-// }
-

@@ -1,6 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
   mount_uploader :avatar, AvatarUploader
+  has_many :reservations
  
   scope :location, -> (a) {where("location ILIKE ?", "%#{a}%")}
 
